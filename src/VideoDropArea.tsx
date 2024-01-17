@@ -1,6 +1,4 @@
-import { useCallback, useState } from 'react'
-import DropZone, { useDropzone } from 'react-dropzone'
-import { readAsDataURL } from './utils/fileReadAsync'
+import DropZone from 'react-dropzone'
 
 export interface VideoDropAreaProps {
   onFilesEntry: (urls: string[]) => void

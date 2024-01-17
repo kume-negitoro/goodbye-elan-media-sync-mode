@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { ChangeEvent, useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { useWindowSize } from './hooks/useWindowSize'
 
@@ -14,7 +14,7 @@ interface SyncModeState {
 }
 
 export const SyncMode = (props: SyncModeProps) => {
-  const [width, height] = useWindowSize()
+  const [width] = useWindowSize()
   const [state, setState] = useState<SyncModeState>({
     video1Playing: false,
     video2Playing: false,
@@ -101,7 +101,7 @@ export const SyncMode = (props: SyncModeProps) => {
     }
   }
 
-  const handleRadioButtonChange = (event) => {
+  const handleRadioButtonChange = (event: ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
       case 'active-video-1':
         return setState(
