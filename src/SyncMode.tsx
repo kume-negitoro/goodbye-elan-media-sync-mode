@@ -152,8 +152,8 @@ export const SyncMode = (props: SyncModeProps) => {
             width={width / 2}
             onProgress={(v) => setVideo1CurrentTime(v.playedSeconds)}
           />
-          <div>{video1CurrentTime}</div>
-          <div>offset: {video1LastOffset}</div>
+          <div>current time: {video1CurrentTime.toFixed(6)}</div>
+          <div>offset: {video1LastOffset.toFixed(6)}</div>
         </div>
         <div id="video2" className="flex-1">
           <ReactPlayer
@@ -164,8 +164,8 @@ export const SyncMode = (props: SyncModeProps) => {
             width={width / 2}
             onProgress={(v) => setVideo2CurrentTime(v.playedSeconds)}
           />
-          <div>{video2CurrentTime}</div>
-          <div>offset: {video2LastOffset}</div>
+          <div>current time: {video2CurrentTime.toFixed(6)}</div>
+          <div>offset: {video2LastOffset.toFixed(6)}</div>
         </div>
       </div>
 
