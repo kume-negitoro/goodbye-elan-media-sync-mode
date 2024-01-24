@@ -1,6 +1,7 @@
 import { ChangeEvent, useRef, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { useWindowSize } from './hooks/useWindowSize'
+import { TextInput } from './TextInput'
 
 export interface SyncModeProps {
   videos: string[]
@@ -154,6 +155,19 @@ export const SyncMode = (props: SyncModeProps) => {
           />
           <div>current time: {video1CurrentTime.toFixed(6)}</div>
           <div>offset: {video1LastOffset.toFixed(6)}</div>
+          <div>
+            {'manual seek: '}
+            <TextInput
+              onEnter={(value) => {
+                const newVideo1CurrentTime = parseFloat(value)
+                if (isNaN(newVideo1CurrentTime)) return
+                if (video1) {
+                  video1.seekTo(newVideo1CurrentTime, 'seconds')
+                  setVideo1CurrentTime(newVideo1CurrentTime)
+                }
+              }}
+            />
+          </div>
         </div>
         <div id="video2" className="flex-1">
           <ReactPlayer
@@ -166,6 +180,19 @@ export const SyncMode = (props: SyncModeProps) => {
           />
           <div>current time: {video2CurrentTime.toFixed(6)}</div>
           <div>offset: {video2LastOffset.toFixed(6)}</div>
+          <div>
+            {'manual seek: '}
+            <TextInput
+              onEnter={(value) => {
+                const newVideo2CurrentTime = parseFloat(value)
+                if (isNaN(newVideo2CurrentTime)) return
+                if (video2) {
+                  video2.seekTo(newVideo2CurrentTime, 'seconds')
+                  setVideo1CurrentTime(newVideo2CurrentTime)
+                }
+              }}
+            />
+          </div>
         </div>
       </div>
 
