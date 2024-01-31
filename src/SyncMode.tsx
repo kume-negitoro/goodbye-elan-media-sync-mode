@@ -188,7 +188,7 @@ export const SyncMode = (props: SyncModeProps) => {
                 if (isNaN(newVideo2CurrentTime)) return
                 if (video2) {
                   video2.seekTo(newVideo2CurrentTime, 'seconds')
-                  setVideo1CurrentTime(newVideo2CurrentTime)
+                  setVideo2CurrentTime(newVideo2CurrentTime)
                 }
               }}
             />
